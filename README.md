@@ -1,2 +1,0 @@
-# Berga-GUI
-
