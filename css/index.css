@@ -93,13 +93,24 @@ nav div span {
 	width: 80%;
 }
 
-#version {
+footer p {
 	position: fixed;
-	right: 2px;
 	bottom: 2px;
 	margin: 0px;
+	display: inline-block;
 	padding: 0px;
-	font-size: 0.7em;
 	opacity: 0.9;
 	text-shadow: 1px 1px rgba(255, 255, 255, 0.3);
+	pointer-events: none;
+	font-size: 0.7em;
+}
+
+#msg_footer {
+	left: 2px;
+	max-width: 50%;
+	text-shadow: none !important;
+}
+
+#version {
+	right: 2px;
 }
