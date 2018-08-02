@@ -68,26 +68,13 @@ class Main {
 
 		loads.forEach(load => {
 			let method = load.getAttribute("data-load");
-			var names  = sanitize({
-				input1 : "teste1",
-				input2 : {
-					teste_attr: ["123", "321"]
-				},
-				input3 : "asd",
-				input4 : {
-					teste_attr : {
-						yolo : "asdasd"
-					}
+			this.getRPC(method, get => {
+				let names = sanitize(get);
+				for (let i in names) {
+					let name = names[i];
+					f_inputs(i, name);
 				}
 			});
-
-			for (let i in names) {
-				let name = names[i];
-				f_inputs(i, name);
-			}
-			// this.getRPC(method, get => {
-			// 	let obj = sanitize(get);
-			// });
 		});
 	}
 
