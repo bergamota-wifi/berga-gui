@@ -10,8 +10,7 @@ class Menu {
 
 	get list () {
 		return [
-			"wireless",
-			"lanwan"
+			"wireless"
 		];
 	}
 
@@ -51,6 +50,7 @@ class Menu {
 		window.fetch("html/" + hash + ".html?v=" + (new Date()).getTime()).then(response => {
 			response.text().then(html => {
 				document.querySelector("main").innerHTML = html;
+				Main.checkLoad();
 			});
 		});
 	}

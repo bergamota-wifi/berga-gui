@@ -1,5 +1,5 @@
 <p>Teste form</p>
-<form action="setWireless" method="POST" onsubmit="return Form.submit(this);">
+<form action="setWireless" method="POST" onsubmit="return Form.submit(this);" data-load="getWireless">
 	<label for="input1">Input 1</label>
 	<input text="text" name="input1" id="input1" autocomplete="off" value="1234"/>
 	<br/>
@@ -16,7 +16,7 @@
 	</select>
 	<br/>
 	<label for="input4">Input 4</label>
-	<input text="text" name="input4[teste_attr]" id="input4" required="" autocomplete="off" value="dsa"/>
+	<input text="text" name="input4[teste_attr][yolo]" id="input4" required="" autocomplete="off" value="dsa"/>
 	<br/>
 	<button type="">Enviar</button>
 </form>

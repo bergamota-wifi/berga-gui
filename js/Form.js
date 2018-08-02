@@ -20,7 +20,7 @@ class Form {
 		send.method    = method;
 		send.params    = serialized;
 		send.id        = parseInt(Math.random() * 10000).toString();
-		let dados      = JSON.stringify(serialized);
+		let dados      = JSON.stringify(send);
 		let init       = {
 			credentials : "include",
 			method      : "POST",
@@ -37,12 +37,15 @@ class Form {
 				window.alert(_t("request_failed"));
 				return;
 			}
-			response.json().then(json => {
-				console.log(json);
-				window.alert(_t("request_success"));
+			response.json().then((json) => {
+				if (typeof json.error !== "undefined"){
+					window.alert("[" + json.error.code + "] " + _t("request_failed"));	
+					window.console.warn(method, json.error);
+				} else {
+					window.alert(_t("request_success"));
+				}
 			}).catch(() => {
 				window.alert(_t("request_failed"));
-				return;
 			});
 		});
 
@@ -52,7 +55,7 @@ class Form {
 	static serialize (form) {
 		let dados  = {};
 		let inputs = form.querySelectorAll("input, select");
-		let nest = (obj, key_path, value) => {
+		let nest   = (obj, key_path, value) => {
 			let last_key = key_path.length - 1;
 			for (let i=0; i<last_key; i++) {
 				let key = key_path[i];
@@ -75,8 +78,8 @@ class Form {
 
 		inputs.forEach(input => {
 			let name = input.getAttribute("name")
-				.replace(/\]/, "")
-				.replace(/\[/, ".")
+				.replace(/\]/g, "")
+				.replace(/\[/g, ".")
 				.split(".");
 
 			if (name.length === 1){
@@ -86,6 +89,7 @@ class Form {
 
 			nest(dados, name, input.value);
 		});
+
 		return dados;
 	}
 }
