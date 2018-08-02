@@ -3,7 +3,9 @@
 class Menu {
 
 	constructor () {
+		window.addEventListener("hashchange", this.hashChange);
 		this.mount();
+		this.hashChange();
 	}
 
 	get list () {
@@ -34,16 +36,22 @@ class Menu {
 			nav.appendChild(div);
 
 			div.addEventListener("click", () => {
-				window.fetch("html/" + menu + ".html?v=" + (new Date()).getTime()).then(response => {
-					response.text().then(html => {
-						document.querySelector("main").innerHTML = html;
-					});
-				});
+				window.location.hash = menu;
 			}, false);
 
 			if (!index){
 				div.click();
+
 			}
+		});
+	}
+
+	hashChange () {
+		let hash = window.location.hash.replace(/\W/, "");
+		window.fetch("html/" + hash + ".html?v=" + (new Date()).getTime()).then(response => {
+			response.text().then(html => {
+				document.querySelector("main").innerHTML = html;
+			});
 		});
 	}
 }
