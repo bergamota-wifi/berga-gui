@@ -1,22 +1,28 @@
-<p>Teste form</p>
 <form action="setWireless" method="POST" onsubmit="return Form.submit(this);" data-load="getWireless">
-	<label for="input1">Input 1</label>
-	<input text="text" name="input1" id="input1" autocomplete="off" value="1234"/>
-	<br/>
-	<label for="input2">Input 2</label>
-	<input text="text" name="input2[teste_attr]" id="input2" required="" autocomplete="off" value="ewq"/>
-	<br/>
-	<label for="input2-1">Input 2.1</label>
-	<input text="text" name="input2[teste_attr]" id="input2-1" required="" autocomplete="off" value="asd"/>
-	<br/>
-	<label for="input3">Input 3</label>
-	<select name="input3" id="input3">
-		<option value="qwe">QWE</option>
-		<option value="asd">ASD</option>
-	</select>
-	<br/>
-	<label for="input4">Input 4</label>
-	<input text="text" name="input4[teste_attr][yolo]" id="input4" required="" autocomplete="off" value="dsa"/>
-	<br/>
+	<fieldset>
+		<legend data-label="wireless"></legend>
+		<div class="w50">
+			<label for="input1">Input 1</label>
+			<input text="text" name="input1" id="input1" autocomplete="off" value="1234"/>
+		</div>
+		<div class="w50">
+			<label for="input2">Input 2</label>
+			<input text="text" name="input2[teste_attr]" id="input2" required="" autocomplete="off" value="ewq"/>
+		</div>
+	</fieldset>
+	<div class="w100">
+		<label for="input2-1">Input 2.1</label>
+		<input text="text" name="input2[teste_attr]" id="input2-1" required="" autocomplete="off" value="asd"/>
+		<br/>
+		<label for="input3">Input 3</label>
+		<select name="input3" id="input3">
+			<option value="qwe">QWE</option>
+			<option value="asd">ASD</option>
+		</select>
+		<br/>
+		<label for="input4">Input 4</label>
+		<input text="text" name="input4[teste_attr][yolo]" id="input4" required="" autocomplete="off" value="dsa"/>
+		<br/>
+	</div>
 	<button type="">Enviar</button>
 </form>

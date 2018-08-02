@@ -49,7 +49,11 @@ class Menu {
 		let hash = window.location.hash.replace(/\W/, "");
 		window.fetch("html/" + hash + ".html?v=" + (new Date()).getTime()).then(response => {
 			response.text().then(html => {
-				document.querySelector("main").innerHTML = html;
+				let main       = document.querySelector("main");
+				main.innerHTML = html;
+
+				main.querySelector("input").focus();
+				Main.translate(main);
 				Main.checkLoad();
 			});
 		});

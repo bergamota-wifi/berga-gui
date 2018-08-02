@@ -113,4 +113,11 @@ class Main {
 			});
 		});
 	}
+
+	static translate (container) {
+		let all = container.querySelectorAll("[data-label]");
+		all.forEach(el => {
+			el.textContent = _t(el.getAttribute("data-label"));
+		});
+	}
 }
