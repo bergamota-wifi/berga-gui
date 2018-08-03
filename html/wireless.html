@@ -1,36 +1,30 @@
 <form action="setWireless" method="POST" onsubmit="return Form.submit(this);" data-load="getWireless">
+
 	<fieldset>
 		<legend data-label="wireless"></legend>
-		<div class="w50">
+		<div class="w33">
 			<label for="wireless[active]" data-label="wireless_active"></label>
 			<select id="wireless[active]" name="wireless[active]">
 				<option value="true" data-label="true"></option>
 				<option value="false" data-label="false"></option>
 			</select>
 		</div>
-		<div class="w50">
-			<label for="wireless[hidden]" data-label="wireless_hidden"></label>
-			<select id="wireless[hidden]" name="wireless[hidden]">
-				<option value="true" data-label="true"></option>
-				<option value="false" data-label="false"></option>
-			</select>
-		</div>
-		<div class="w50">
+		<div class="w33">
 			<label for="wireless[opmode]" data-label="wireless_opmode"></label>
 			<select id="wireless[opmode]" name="wireless[opmode]">
 				<option value="master" data-label="master"></option>
 				<option value="bridge" data-label="bridge"></option>
 			</select>
 		</div>
-		<div class="w50">
+		<div class="w33">
 			<label for="wireless[mode]" data-label="wireless_mode"></label>
 			<select id="wireless[mode]" name="wireless[mode]">
-				<option value="b">b = 11</option>
-				<option value="g">g = 54</option>
-				<option value="n">n = 150/300</option>
+				<option value="b">11mbps (B)</option>
+				<option value="g">54mbps (G)</option>
+				<option value="n">150/300mbps (N)</option>
 			</select>
 		</div>
-		<div class="w50">
+		<div class="w33">
 			<label for="wireless[channel]" data-label="wireless_channel"></label>
 			<select id="wireless[channel]" name="wireless[channel]">
 				<option value="1">1</option>
@@ -46,58 +40,199 @@
 				<option value="11">11</option>
 			</select>
 		</div>
+		<div class="w33">
+			<label for="wireless[encryption]" data-label="wireless_encryption"></label>
+			<select id="wireless[encryption]" name="wireless[encryption]">
+				<option value="wpa2-aes">WPA2-AES</option>
+			</select>
+		</div>
+		<div class="w33">
+			<label for="wireless[isolation]" data-label="wireless_isolation"></label>
+			<select id="wireless[isolation]" name="wireless[isolation]">
+				<option value="yes" data-label="true"></option>
+				<option value="no" data-label="false"></option>
+			</select>
+		</div>
+		<div class="w33">
+			<label for="wireless[txpower]" data-label="wireless_txpower"></label>
+			<select id="wireless[txpower]" name="wireless[txpower]">
+				<option value="0">0</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+				<option value="16">16</option>
+				<option value="17">17</option>
+			</select>
+		</div>
+		<div class="w33">
+			<label for="wireless[txrate]" data-label="wireless_txrate"></label>
+			<select id="wireless[txrate]" name="wireless[txrate]">
+				<option value="max" data-label="max"></option>
+				<option value="11">11</option>
+				<option value="54">54</option>
+			</select>
+		</div>
+		<div class="w33">
+			<label for="wireless[threshold]" data-label="wireless_threshold"></label>
+			<select id="wireless[threshold]" name="wireless[threshold]">
+				<option value="false" data-label="false"></option>
+				<option value="true" data-label="true"></option>
+			</select>
+		</div>
+		<div class="w33">
+			<label for="wireless[min_signal]" data-label="wireless_min_signal"></label>
+			<input id="wireless[min_signal]" type="number" name="wireless[min_signal]" min="0" max="100" step="1" />
+		</div>
+	</fieldset>
+
+	<fieldset>
+		<legend data-label="primary_wireless"></legend>
+		<div class="w33">
+			<label for="primary_wireless[threshold]" data-label="active"></label>
+			<select id="primary_wireless[threshold]" name="primary_wireless[threshold]">
+				<option value="true" data-label="true"></option>
+				<option value="false" data-label="false"></option>
+			</select>
+		</div>
+		<div class="w33">
+			<label for="primary_wireless[hidden]" data-label="wireless_hidden"></label>
+			<select id="primary_wireless[hidden]" name="primary_wireless[hidden]">
+				<option value="false" data-label="false"></option>
+				<option value="true" data-label="true"></option>
+			</select>
+		</div>
+		<div class="w33">
+			<label for="primary_wireless[ssid]" data-label="wireless_ssid"></label>
+			<input id="primary_wireless[ssid]" type="text" name="primary_wireless[ssid]" pattern=".{8,33}" required="" maxlength="63" value="Bergamota-NG"/>
+		</div>
+		<div class="w33">
+			<label for="primary_wireless[password]" data-label="wireless_password"></label>
+			<input id="primary_wireless[password]" type="text" name="primary_wireless[password]" maxlength="63" pattern=".{8,33}"/>
+		</div>
+		<div class="w33">
+			<label for="primary_wireless[netmask]" data-label="wireless_netmask"></label>
+			<input id="primary_wireless[netmask]" type="text" name="primary_wireless[netmask]" required="" placeholder="255.255.255.0" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" value="255.255.255.0"/>
+		</div>
+		<div class="w33">
+			<label for="primary_wireless[macaddr]" data-label="wireless_macaddr"></label>
+			<input id="primary_wireless[macaddr]" type="text" name="primary_wireless[macaddr]" required="" placeholder="78:44:76:ab:45:04" pattern="[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}" value="78:44:76:ab:45:04"/>
+		</div>
+		<div class="w33">
+			<label for="primary_wireless[tor_proxy]" data-label="wireless_tor_proxy"></label>
+			<select id="primary_wireless[tor_proxy]" name="primary_wireless[tor_proxy]">
+				<option value="false" data-label="false"></option>
+				<option value="true" data-label="true"></option>
+			</select>
+		</div>
+	</fieldset>
+
+	<fieldset>
+		<legend data-label="secondary_wireless"></legend>
+		<div class="w33">
+			<label for="secondary_wireless[threshold]" data-label="active"></label>
+			<select id="secondary_wireless[threshold]" name="secondary_wireless[threshold]">
+				<option value="false" data-label="false"></option>
+				<option value="true" data-label="true"></option>
+			</select>
+		</div>
+		<div class="w33">
+			<label for="secondary_wireless[hidden]" data-label="wireless_hidden"></label>
+			<select id="secondary_wireless[hidden]" name="secondary_wireless[hidden]">
+				<option value="false" data-label="false"></option>
+				<option value="true" data-label="true"></option>
+			</select>
+		</div>
+		<div class="w33">
+			<label for="secondary_wireless[ssid]" data-label="wireless_ssid"></label>
+			<input id="secondary_wireless[ssid]" type="text" name="secondary_wireless[ssid]" pattern=".{8,33}" required="" maxlength="63" value="Bergamota-NG 2"/>
+		</div>
+		<div class="w33">
+			<label for="secondary_wireless[password]" data-label="wireless_password"></label>
+			<input id="secondary_wireless[password]" type="text" name="secondary_wireless[password]" maxlength="63" pattern=".{8,33}"/>
+		</div>
+		<div class="w33">
+			<label for="secondary_wireless[ipaddr]" data-label="wireless_ipaddr"></label>
+			<input id="secondary_wireless[ipaddr]" type="text" name="secondary_wireless[ipaddr]" required="" placeholder="172.16.5.1" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" value="172.16.5.1"/>
+		</div>
+		<div class="w33">
+			<label for="secondary_wireless[netmask]" data-label="wireless_netmask"></label>
+			<input id="secondary_wireless[netmask]" type="text" name="secondary_wireless[netmask]" required="" placeholder="255.255.255.0" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" value="255.255.255.0"/>
+		</div>
+		<div class="w33">
+			<label for="secondary_wireless[macaddr]" data-label="wireless_macaddr"></label>
+			<input id="secondary_wireless[macaddr]" type="text" name="secondary_wireless[macaddr]" required="" placeholder="78:44:76:ab:45:05" pattern="[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}" value="78:44:76:ab:45:05"/>
+		</div>
+		<div class="w33">
+			<label for="secondary_wireless[tor_proxy]" data-label="wireless_tor_proxy"></label>
+			<select id="secondary_wireless[tor_proxy]" name="secondary_wireless[tor_proxy]">
+				<option value="false" data-label="false"></option>
+				<option value="true" data-label="true"></option>
+			</select>
+		</div>
+	</fieldset>
+
+	<fieldset>
+		<legend data-label="third_wireless"></legend>
+		<div class="w33">
+			<label for="third_wireless[threshold]" data-label="active"></label>
+			<select id="third_wireless[threshold]" name="third_wireless[threshold]">
+				<option value="false" data-label="false"></option>
+				<option value="true" data-label="true"></option>
+			</select>
+		</div>
+		<div class="w33">
+			<label for="third_wireless[hidden]" data-label="wireless_hidden"></label>
+			<select id="third_wireless[hidden]" name="third_wireless[hidden]">
+				<option value="false" data-label="false"></option>
+				<option value="true" data-label="true"></option>
+			</select>
+		</div>
+		<div class="w33">
+			<label for="third_wireless[ssid]" data-label="wireless_ssid"></label>
+			<input id="third_wireless[ssid]" type="text" name="third_wireless[ssid]" pattern=".{8,33}" required="" maxlength="63" value="Bergamota-NG 2"/>
+		</div>
+		<div class="w33">
+			<label for="third_wireless[password]" data-label="wireless_password"></label>
+			<input id="third_wireless[password]" type="text" name="third_wireless[password]" maxlength="63" pattern=".{8,33}"/>
+		</div>
+		<div class="w33">
+			<label for="third_wireless[ipaddr]" data-label="wireless_ipaddr"></label>
+			<input id="third_wireless[ipaddr]" type="text" name="third_wireless[ipaddr]" required="" placeholder="172.16.10.1" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" value="172.16.10.1"/>
+		</div>
+		<div class="w33">
+			<label for="third_wireless[netmask]" data-label="wireless_netmask"></label>
+			<input id="third_wireless[netmask]" type="text" name="third_wireless[netmask]" required="" placeholder="255.255.255.0" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" value="255.255.255.0"/>
+		</div>
+		<div class="w33">
+			<label for="third_wireless[macaddr]" data-label="wireless_macaddr"></label>
+			<input id="third_wireless[macaddr]" type="text" name="third_wireless[macaddr]" required="" placeholder="78:44:76:ab:45:06" pattern="[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}" value="78:44:76:ab:45:06"/>
+		</div>
+		<div class="w33">
+			<label for="third_wireless[tor_proxy]" data-label="wireless_tor_proxy"></label>
+			<select id="third_wireless[tor_proxy]" name="third_wireless[tor_proxy]">
+				<option value="false" data-label="false"></option>
+				<option value="true" data-label="true"></option>
+			</select>
+		</div>
 	</fieldset>
 	<button type="submit" data-label="save"></button>
 </form>
 
 <!--
         "network":      {
-                "wireless":     {
-                        "encryption":   "wpa2-aes",
-                        "isolation":    "false",
-                        "txpower":      "0",
-                        "txrate":       "max",
-                        "threshold":    "false",
-                        "min_signal":   "15"
-                },
-                "primary_wireless":     {
-					"active":       "true",
-					"hidden":       "true",
-					"timecontrol":  "false",
-					"ssid": "Bergamota-NG",
-					"password":     "cocodopanda",
-					"macaddr":      "78:44:76:ab:45:04",
-					"tor_proxy": "yes"
-				},
-				"secondary_wireless":   {
-					"active":       "false",
-					"hidden":       "false",
-					"timecontrol":  "false",
-					"ssid": "Bergamota-NG 2",
-					"password":     "",
-					"ipaddr":       "172.16.5.1",
-					"netmask":      "255.255.255.0",
-					"macaddr":      "78:44:76:ab:45:05",
-					"tor_proxy": "yes"
-                },
-                "third_wireless":       {
-					"active":       "false",
-					"hidden":       "false",
-					"protected":    "false",
-					"timecontrol":  "false",
-					"ssid": "Bergamota-NG 3",
-					"password":     "",
-					"ipaddr":       "172.16.10.1",
-					"netmask":      "255.255.255.0",
-					"macaddr":      "78:44:76:ab:45:06",
-					"tor_proxy": "yes"
-                },
-                "repeater_wireless":    {
-                        "ssid": "",
-                        "password":     "",
-                        "channel":      "1",
-                        "encryption":   "wpa2-aes"
-                },
+
                 "lan":  {
                         "mode": "single",
                         "ipaddr":       "172.16.1.1",

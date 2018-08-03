@@ -39,18 +39,6 @@ main {
 	text-shadow: 1px 1px #000000;
 }
 
-main:after {
-	position: fixed;
-	content: " ";
-	right: -110px;
-	bottom: -60px;
-	background-image: url('../img/background.jpg');
-	background-repeat: no-repeat;
-	width: 562px;
-	height: 238px;
-	opacity: 0.1;
-}
-
 nav {
 	position: absolute;
 	min-height: 100px;
@@ -109,7 +97,6 @@ footer p {
 	display: inline-block;
 	padding: 0px;
 	opacity: 0.9;
-	text-shadow: 1px 1px rgba(255, 255, 255, 0.3);
 	pointer-events: none;
 	font-size: 0.7em;
 }
@@ -117,7 +104,6 @@ footer p {
 #msg_footer {
 	left: 2px;
 	max-width: 50%;
-	text-shadow: none !important;
 }
 
 #version {
@@ -163,6 +149,7 @@ button {
 	text-shadow: 0px 1px 0px #FFEE66;
 	margin: 5px;
 }
+
 button:hover {
 	background:linear-gradient(to bottom, #FFAB23 5%, #FFEC64 100%);
 	background-color:#FFAB23;
@@ -178,6 +165,7 @@ input {
 	padding: 6px 12px;
 	border-radius: 2px;
 	font-size: 0.9em;
+	width: calc(98% - 48px);
 }
 
 input:focus {
@@ -186,6 +174,14 @@ input:focus {
 
 div[class^="w"] {
 	display: inline-block;
+}
+
+.w25 {
+	width: 24.5%;
+}
+
+.w33 {
+	width: 33%;
 }
 
 .w50 {

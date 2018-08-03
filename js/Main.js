@@ -5,8 +5,7 @@ class Main {
 	init () {
 		this._lang = "pt_br";
 		this.menu  = new Menu();
-
-		document.querySelector("#msg_footer").textContent = _t("msg_footer");
+		Main.translate(document.body);
 	}
 
 	get lang () {
