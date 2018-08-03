@@ -52,7 +52,9 @@ class Menu {
 				let main       = document.querySelector("main");
 				main.innerHTML = html;
 
-				main.querySelector("input").focus();
+				if (main.querySelector("input")){
+					main.querySelector("input").focus();
+				}
 				Main.translate(main);
 				Main.checkLoad();
 			});
